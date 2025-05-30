@@ -749,6 +749,9 @@ calcSteel_Projections <- function(subtype = 'production',
     pivot_wider() %>%
     character.data.frame()
 
+  #expert guess is 0.9, for our purposes, change this to 0.7
+  secondary.steel.max.switches$secondary.steel.max.share.target <- 0.7
+  
   tmp <- full_join(
     steel_historic_prod %>%
       filter('Total' != .data$iso3c) %>%
